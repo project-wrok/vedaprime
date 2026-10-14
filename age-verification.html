@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Verification - 21+</title>
+
+    <!-- Google Font: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="age-verification.css">
+    
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2308052996661333');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2308052996661333&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+
+<body>
+    <div class="verification-card">
+        <!-- 21+ Red Circle Badge -->
+        <div class="badge-img-wrapper">
+            <img src="/21.jpg" alt="21+ Age Verification" class="badge-img">
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="main-title">Age Verification</h1>
+
+        <!-- Subheading Question -->
+        <p class="sub-title">Are you over <span>21</span> years of age?</p>
+
+        <!-- Action Buttons -->
+        <div class="btn-group">
+            <a href="index.html" onclick="sessionStorage.setItem('vedantara_age_verified', 'true');" class="btn-yes">Yes, I'm 21+</a>
+            <a href="javascript:void(0);" onclick="handleDeny();" class="btn-no">NO</a>
+        </div>
+
+        <!-- Footnote Disclaimer -->
+        <p class="disclaimer-text">
+            * This site is intended only for individuals over 21 years of age.
+        </p>
+
+        <!-- Access Denied Message Box if NO is clicked -->
+        <div id="deniedMsg" class="denied-message">
+            Access restricted. You must be at least 21 years old to view this website.
+        </div>
+    </div>
+
+</body>
+<script src="age-verification.js"></script>
+</html>

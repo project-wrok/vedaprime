@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Successfully Placed! - vedantara Shakti</title>
+
+    <!-- Google Font: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f6;
+            color: #111827;
+            display: flex;
+            justify-content: center;
+            padding: 20px 12px 40px 12px;
+            min-height: 100vh;
+        }
+
+        .thanks-container {
+            width: 100%;
+            max-width: 460px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 30px 20px 25px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        /* Success Checkmark Circle */
+        .check-circle {
+            width: 78px;
+            height: 78px;
+            background-color: #059669;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            box-shadow: 0 0 0 10px rgba(5, 150, 105, 0.12), 0 10px 25px rgba(5, 150, 105, 0.3);
+            margin: 6px auto 22px auto;
+        }
+
+        .check-circle svg {
+            width: 40px;
+            height: 40px;
+            stroke-width: 3.5;
+        }
+
+        /* Header Title */
+        .success-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #111827;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-align: center;
+            margin-bottom: 22px;
+            line-height: 1.2;
+            width: 100%;
+        }
+
+        .title-badge-icon {
+            width: 22px;
+            height: 22px;
+            background-color: #059669;
+            border-radius: 50%;
+            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .title-badge-icon svg {
+            width: 13px;
+            height: 13px;
+            stroke-width: 3.5;
+        }
+
+        /* Confirmation Alert Box */
+        .alert-box {
+            width: 100%;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid #059669;
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .alert-box p {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #334155;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Order Summary Card (Dark Green) */
+        .summary-card {
+            width: 100%;
+            background-color: #046a38;
+            color: #ffffff;
+            border-radius: 14px;
+            padding: 20px 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 6px 18px rgba(4, 106, 56, 0.2);
+        }
+
+        .summary-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 17px;
+            font-weight: 800;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 14px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .summary-row .label {
+            font-weight: 600;
+            opacity: 0.95;
+        }
+
+        .summary-row .value {
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .pill-badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 800;
+            display: inline-block;
+        }
+
+        .pill-free {
+            background-color: #ffffff;
+            color: #046a38;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11.5px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .summary-divider {
+            border-top: 1px dashed rgba(255, 255, 255, 0.35);
+            margin: 14px 0;
+        }
+
+        .summary-total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .summary-total-row .total-label {
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        .summary-total-row .total-value {
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        /* Call Info Banner */
+        .call-banner {
+            width: 100%;
+            background-color: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            border-radius: 12px;
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .call-icon-box {
+            color: #059669;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .call-banner p {
+            color: #065f46;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin: 0;
+            text-align: left;
+        }
+
+        /* What Happens Next Card (Crimson Red) */
+        .next-steps-card {
+            width: 100%;
+            background-color: #c81e1e;
+            color: #ffffff;
+            border-radius: 14px;
+            padding: 18px 16px;
+            margin-bottom: 22px;
+            box-shadow: 0 6px 18px rgba(200, 30, 30, 0.2);
+            text-align: left;
+        }
+
+        .next-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16.5px;
+            font-weight: 800;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+            margin-bottom: 14px;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .step-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-badge {
+            width: 24px;
+            height: 24px;
+            background-color: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .step-text {
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.45;
+        }
+
+        /* Back to Home Button */
+        .back-home-btn {
+            width: 100%;
+            background-color: #059669;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            padding: 14px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 6px 16px rgba(5, 150, 105, 0.35);
+            transition: all 0.15s ease;
+            margin-bottom: 18px;
+        }
+
+        .back-home-btn:hover {
+            background-color: #047857;
+            transform: translateY(-1px);
+        }
+
+        .back-home-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Brand Footer */
+        .footer-brand {
+            font-size: 12px;
+            font-weight: 800;
+            color: #94a3b8;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+    </style>
+<!-- Meta Pixel Code -->
+ <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2308052996661333');
+fbq('track', 'PageView');
+fbq('track', 'Lead');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2308052996661333&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- End Meta Pixel Code -->
+</head>
+
+<body>
+
+    <div class="thanks-container">
+        <!-- Success Pulse Check Circle -->
+        <div class="check-circle">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
+
+        <!-- Success Heading -->
+        <h1 class="success-title">
+            <span class="title-badge-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </span>
+            Order Successfully Placed!
+        </h1>
+
+        <!-- Confirmation Alert Box -->
+        <div class="alert-box">
+            <p>
+                आपका <strong>vedantara Shakti Capsule</strong> का Order सफलतापूर्वक Place हो गया है। हमारी Team जल्द ही आपको Call करके Order Confirm करेगी।
+            </p>
+        </div>
+
+        <!-- Order Summary Card (Dark Green) -->
+        <div class="summary-card">
+            <div class="summary-header">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
+                        clip-rule="evenodd" />
+                </svg>
+                Your Order Summary
+            </div>
+
+            <div class="summary-row">
+                <span class="label">Product</span>
+                <span class="value">vedantara Shakti Capsule</span>
+            </div>
+
+            <div class="summary-row">
+                <span class="label">Subtotal</span>
+                <span class="value">₹2,490.00</span>
+            </div>
+
+            <div class="summary-row">
+                <span class="label">Shipping</span>
+                <span class="pill-free">FREE SHIPPING</span>
+            </div>
+
+            <div class="summary-row">
+                <span class="label">Payment</span>
+                <span class="pill-badge">Cash On Delivery</span>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-total-row">
+                <span class="total-label">Total</span>
+                <span class="total-value">₹2,490.00</span>
+            </div>
+        </div>
+
+        <!-- Call Alert Banner -->
+        <div class="call-banner">
+            <div class="call-icon-box">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z" />
+                </svg>
+            </div>
+            <p>
+                हमारी Team आपके Mobile Number पर 30 मिनट के अंदर Call करेगी। कृपया अपना Phone पास रखें।
+            </p>
+        </div>
+
+        <!-- What Happens Next? Card (Red) -->
+        <div class="next-steps-card">
+            <div class="next-header">
+                <svg width="22" height="22" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+                    <path
+                        d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7h-3v7h1.05a2.5 2.5 0 014.9 0H17a1 1 0 001-1v-4.586a1 1 0 00-.293-.707l-2.414-2.414A1 1 0 0014.586 7H14z" />
+                </svg>
+                What Happens Next?
+            </div>
+
+            <div class="step-item">
+                <div class="step-badge">1</div>
+                <div class="step-text">हमारी Team आपको Call करेगी और Order Details Confirm करेगी।</div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-badge">2</div>
+                <div class="step-text">आपका vedantara Shakti Capsule Discreet Packaging में Ship किया जाएगा।</div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-badge">3</div>
+                <div class="step-text">Delivery के समय Cash on Delivery (COD) से Payment करें।</div>
+            </div>
+        </div>
+
+        <!-- Back to Home Button -->
+        <a href="index.html" class="back-home-btn">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            BACK TO HOME
+        </a>
+
+        <!-- Brand Footer -->
+        <div class="footer-brand">
+            vedantara Shakti | PREMIUM AYURVEDIC WELLNESS
+        </div>
+    </div>
+
+</body>
+
+</html>
